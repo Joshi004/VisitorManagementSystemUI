@@ -15,29 +15,18 @@ export const styles = StyleSheet.create({
         width:'100%',
     },
     formGroup:{
-        // justifyContent:'right',
         flexDirection:'row',
-        // borderWidth:
         width:'100%',
         borderColor: 'gray', 
         borderWidth: 1,
-        // backgroundColor:'yellow',
     },
     inputField:{
         height: 40,
-        // borderColor: 'gray', 
-        // borderWidth: 1,
         width:'60%'
-        // justifyContent:"right",
-        // flex:1,
-        // flexDirection:'row'
     },
     inputLabel:{
-        // height: 40,
         backgroundColor:'rgb(200,200,200)', 
-        // flex:1,
         color:'white',
         width:'40%'
-        // flexDirection:'row'
     }
 });
