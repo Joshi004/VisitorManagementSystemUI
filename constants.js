@@ -1,11 +1,11 @@
-import {styles} from './RequestForms/formStyle'
+// import {styles} from './RequestForms/FormStyle'
 selectionColor = 'black'
 underlineColorAndroid = '#add8e6'
 
 export const requestParameters = [
     {
         'fieldName':'name',
-        'placeholder':'Visitor Name',
+        'placeholder':'Visitor\'s Name',
         'selectionColor':selectionColor,
         'underlineColorAndroid':underlineColorAndroid,
         'keyboardType':'default', 

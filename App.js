@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import Visitor from './RequestForms/visitor';
+import Visitor from './RequestForms/Visitor';
 export default class App extends Component {
   render() {
       return (
