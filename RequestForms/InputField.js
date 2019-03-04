@@ -23,7 +23,7 @@ export default class InputField extends Component {
         <View style={styles.inputField}>
         <Text style={this.state.isFocused ? styles.label: ''}>{this.state.isFocused ? this.props.placeholder : ''}</Text>
             <TextInput 
-                placeholder={this.props.placeholder}
+                placeholder={!this.state.isFocused ? this.props.placeholder : null}
                 selectionColor={this.props.selectionColor}
                 keyboardType={this.props.keyboardType}
                 value={this.state[this.props.fieldName]}

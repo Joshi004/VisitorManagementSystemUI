@@ -23,8 +23,9 @@ export const styles = StyleSheet.create({
     },
     label:{
         // marginTop:20,
-        backgroundColor:'rgb(200,200,200)', 
-        color:'white',
-        width:'40%'
+        backgroundColor:'rgb(245,245,245)', 
+        color:'black',
+        width:'100%',
+        padding:10,
     }
 });
