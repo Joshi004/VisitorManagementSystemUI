@@ -14,7 +14,7 @@ export default class Visitor extends Component {
           {requestParameters.map((field) => {
             return (
               <InputField
-                key={field.fieldName} 
+              key={field.fieldName} 
                 fieldName={field.fieldName}
                 placeholder={field.placeholder}
                 selectionColor={field.selectionColor}

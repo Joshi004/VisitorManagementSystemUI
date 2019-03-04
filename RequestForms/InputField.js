@@ -8,27 +8,25 @@ export default class InputField extends Component {
       }
     
   handleFocus = event => {
-    console.warn('In focus method')
     this.setState({
       isFocused: true
     });
   }
 
   handleBlur = event => {
-    console.warn('In Blur method')
-    this.setState(() => {
+    this.setState({
       isFocused: false
     });
   }
   render() {
       return (
         <View style={styles.inputField}>
-            <TextInput key={this.props.fieldName}
+        <Text style={styles.label}>{this.props.placeholder}</Text>
+            <TextInput 
                 placeholder={this.props.placeholder}
                 selectionColor={this.props.selectionColor}
                 keyboardType={this.props.keyboardType}
-                underlineColorAndroid={this.state.isFocused ? 'red' : 'black'}
-                
+                underlineColorAndroid={this.state.isFocused ? 'blue' : 'black'}
                 style={styles.inputField}
                 onChangeText={(text) => this.setState({ text })}
                 value={this.state[this.props.fieldName]}

@@ -16,14 +16,15 @@ export const styles = StyleSheet.create({
     },
    
     inputField:{
-        height: 40,
+        height: 60,
         width:'100%',
-        marginTop:20,
+        marginBottom:40,
         padding:5
     },
-    // inputLabel:{
-    //     backgroundColor:'rgb(200,200,200)', 
-    //     color:'white',
-    //     width:'40%'
-    // }
+    label:{
+        // marginTop:20,
+        backgroundColor:'rgb(200,200,200)', 
+        color:'white',
+        width:'40%'
+    }
 });
