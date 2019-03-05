@@ -1,16 +1,35 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, TextInput } from 'react-native';
+import { Platform, StyleSheet, Alert, TouchableOpacity, Text, View, TextInput, Button } from 'react-native';
 import { styles } from './FormStyle';
 import { requestParameters } from '../constants'
 import InputField from './InputField'
 export default class Visitor extends Component {
-  state ={}
+  state = {}
+
   saveForm = (keyValue) => {
-    console.log('This is  form parent',keyValue)
+    console.log('This is  form parent', keyValue)
     this.setState(
       keyValue
     )
-    console.log('After seeting in parent',this.state)
+    console.log('After seeting in parent', this.state)
+  }
+
+  alert() {
+    console.warn('Form is subbmitted')
+    Alert.alert(
+      'Sending the data for name',
+      this.state.name,
+      [
+        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
+      ],
+      { cancelable: true },
+    );
   }
   render() {
     return (
@@ -27,12 +46,25 @@ export default class Visitor extends Component {
                 keyboardType={field.keyboardType}
                 focusedUnderlineColor={field.focusedUnderlineColor}
                 blurUnderlineColor={field.blurUnderlineColor}
-                saveForm = {this.saveForm}>
+                saveForm={this.saveForm}>
               </InputField>
             )
           })}
+          <View style={styles.subbmitButton}>
 
+            <Button
+              title="Subbmit Form"
+              color="#00BCD4"
+              // onPress={this.alert()}
+              style={styles.subbmitButton}
+            />
+
+
+          </View>
         </View>
+
+
+
       </View>
     );
   }

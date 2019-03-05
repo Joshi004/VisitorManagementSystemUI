@@ -27,5 +27,15 @@ export const styles = StyleSheet.create({
         color:'black',
         width:'100%',
         padding:10,
+    },
+    subbmitButton:{
+        width:'100%',
+        height:40,
+    },
+    touch:{
+        alignItems: 'center',
+        backgroundColor: '#DDDDDD',
+        padding: 10
     }
+
 });
