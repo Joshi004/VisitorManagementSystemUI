@@ -14,24 +14,34 @@ export default class InputField extends Component {
   }
 
   handleBlur = event => {
+    console.log('This is event',this.state.value)
     this.setState({
       isFocused: false
+    });
+    // this.props.saveForm(this.state.value)
+  }
+
+  handleChangeText = text => {
+    this.setState({
+      value: text
     });
   }
   render() {
       return (
         <View style={styles.inputField}>
-        <Text style={this.state.isFocused ? styles.label: ''}>{this.state.isFocused ? this.props.placeholder : ''}</Text>
+        <Text style={this.state.isFocused ? styles.label: ''}>
+        {this.state.isFocused ? this.props.placeholder : ''}
+        </Text>
             <TextInput 
-                placeholder={!this.state.isFocused ? this.props.placeholder : null}
+                placeholder={!this.state.isFocused & !this.state.value ? this.props.placeholder : null}
                 selectionColor={this.props.selectionColor}
                 keyboardType={this.props.keyboardType}
                 value={this.state[this.props.fieldName]}
-                underlineColorAndroid={this.state.isFocused ? 'rgb(137, 182, 246)' : 'rgb(155, 155, 155)'}
+                underlineColorAndroid={this.state.isFocused ? this.props.focusedUnderlineColor:this.props.blurUnderlineColor}
                 style={styles.inputField}
-                onChangeText={(text) => this.setState({ text })}
                 onFocus={this.handleFocus}
-                onBlur={this.handleBlur}
+                onBlur={this.handleBlur }
+                onChangeText={this.handleChangeText}
               />
         </View>
       );

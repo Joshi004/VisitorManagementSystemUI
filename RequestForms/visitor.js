@@ -4,8 +4,10 @@ import { styles } from './FormStyle';
 import { requestParameters } from '../constants'
 import InputField from './InputField'
 export default class Visitor extends Component {
-  
-  
+
+  saveForm =  (text)=>{
+    console.log('This is ave form',text)
+  }
   render() {
     return (
       <View>
@@ -14,12 +16,14 @@ export default class Visitor extends Component {
           {requestParameters.map((field) => {
             return (
               <InputField
-              key={field.fieldName} 
+                key={field.fieldName}
                 fieldName={field.fieldName}
                 placeholder={field.placeholder}
                 selectionColor={field.selectionColor}
                 keyboardType={field.keyboardType}
-                underlineColorAndroid={field.underlineColorAndroid}>
+                focusedUnderlineColor={field.focusedUnderlineColor}
+                blurUnderlineColor={field.blurUnderlineColor}>
+                saveForm = {this.saveForm}
               </InputField>
             )
           })}

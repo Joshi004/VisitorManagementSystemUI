@@ -1,27 +1,31 @@
 // import {styles} from './RequestForms/FormStyle'
 selectionColor = 'black'
-underlineColorAndroid = '#add8e6'
+focusedUnderlineColor = '#6d9ada'
+blurUnderlineColor = '#9b9b9b'
 
 export const requestParameters = [
     {
         'fieldName':'name',
-        'placeholder':'Visitor\'s Name',
+        'placeholder':'Visitor Names',
         'selectionColor':selectionColor,
-        'underlineColorAndroid':underlineColorAndroid,
+        'focusedUnderlineColor':focusedUnderlineColor,
+        'blurUnderlineColor':blurUnderlineColor,
         'keyboardType':'default', 
     },
     {
         'fieldName':'purpose',
         'placeholder':'Purpose Of Visit',
         'selectionColor':selectionColor,
-        'underlineColorAndroid':underlineColorAndroid,
+        'focusedUnderlineColor':focusedUnderlineColor,
+        'blurUnderlineColor':blurUnderlineColor,
         'keyboardType':'default', 
     },
     {
         'fieldName':'reference',
         'placeholder':'Refrence Employee ID',
         'selectionColor':selectionColor,
-        'underlineColorAndroid':underlineColorAndroid,
+        'focusedUnderlineColor':focusedUnderlineColor,
+        'blurUnderlineColor':blurUnderlineColor,
         'keyboardType':'numeric', 
     },
     
