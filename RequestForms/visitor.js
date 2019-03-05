@@ -4,9 +4,13 @@ import { styles } from './FormStyle';
 import { requestParameters } from '../constants'
 import InputField from './InputField'
 export default class Visitor extends Component {
-
-  saveForm =  (text)=>{
-    console.log('This is ave form',text)
+  state ={}
+  saveForm = (keyValue) => {
+    console.log('This is  form parent',keyValue)
+    this.setState(
+      keyValue
+    )
+    console.log('After seeting in parent',this.state)
   }
   render() {
     return (
@@ -22,8 +26,8 @@ export default class Visitor extends Component {
                 selectionColor={field.selectionColor}
                 keyboardType={field.keyboardType}
                 focusedUnderlineColor={field.focusedUnderlineColor}
-                blurUnderlineColor={field.blurUnderlineColor}>
-                saveForm = {this.saveForm}
+                blurUnderlineColor={field.blurUnderlineColor}
+                saveForm = {this.saveForm}>
               </InputField>
             )
           })}
