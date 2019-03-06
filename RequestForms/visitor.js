@@ -10,12 +10,13 @@ export default class Visitor extends Component {
     // console.warn('This is  form parent', fieldName , fieldValue)
     this.formObject[fieldName] = fieldValue
     console.warn('After seeting in parent', this.formObject)
-    this.setState(this.formObject)
-    console.warn('After setting state',this.state.formObject)
+    this.setState({
+      formObject: this.formObject
+    })
   }
 
-  alert() {
-    console.warn('Please confirm',this.state)
+  alert1() {
+    console.log('Please confirm',this)
     // Alert.alert(
     //   'Send form data',
     //   // this.state.name,
@@ -37,7 +38,7 @@ export default class Visitor extends Component {
       <View>
         <Text style={styles.formHeading}> Enter Particulers Below </Text>
         <View style={styles.formBody}>
-          {requestParameters.map((field) => {
+          {requestParameters[this.props.visitorType].map((field) => {
             return (
 
               <InputField
@@ -57,10 +58,10 @@ export default class Visitor extends Component {
 
             <TouchableOpacity onPress={this.onPressButton}
             style={styles.button}
-            onPress={this.alert}
+            onPress={this.alert1}
             >
               
-              <Text>This is text 101</Text>
+              <Text>Subbmit</Text>
             </TouchableOpacity>
 
 
