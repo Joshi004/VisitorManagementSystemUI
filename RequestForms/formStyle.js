@@ -28,9 +28,13 @@ export const styles = StyleSheet.create({
         width:'100%',
         padding:10,
     },
-    subbmitButton:{
+    button:{
         width:'100%',
-        height:40,
+        height:50,
+        backgroundColor:"#00BCD4",
+        textAlign:'center',
+        alignItems:'center',
+        justifyContent:'center'
     },
     touch:{
         alignItems: 'center',

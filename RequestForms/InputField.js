@@ -19,7 +19,7 @@ export default class InputField extends Component {
       isFocused: false
     });
     console.log('Going to set key as ',this.props.fieldName)
-    this.props.saveForm({[this.props.fieldName]:this.state.value});
+    this.props.saveForm(this.props.fieldName,this.state.value);
   }
 
   handleChangeText = text => {
