@@ -14,18 +14,20 @@ export default class InputField extends Component {
   }
 
   handleBlur = event => {
-    console.log('This is event',this.state.value)
+    // console.log('This is event',this.state.value)
     this.setState({
       isFocused: false
     });
-    console.log('Going to set key as ',this.props.fieldName)
-    this.props.saveForm(this.props.fieldName,this.state.value);
+    // console.log('Going to set key as ',this.props.fieldName)
+    
   }
 
   handleChangeText = text => {
     this.setState({
       value: text
     });
+    // If above behaves asynchronusly foloowing line may not set the ste properly
+    this.props.saveForm(this.props.fieldName,this.state.value);
   }
   render() {
       return (

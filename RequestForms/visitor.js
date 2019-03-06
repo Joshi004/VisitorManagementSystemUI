@@ -9,30 +9,31 @@ export default class Visitor extends Component {
   saveForm = (fieldName,fieldValue) => {
     // console.warn('This is  form parent', fieldName , fieldValue)
     this.formObject[fieldName] = fieldValue
-    console.warn('After seeting in parent', this.formObject)
+    // console.warn('After seeting in parent', this.formObject)
     this.setState({
       formObject: this.formObject
     })
   }
 
-  alert1() {
-    console.log('Please confirm',this)
-    // Alert.alert(
-    //   'Send form data',
-    //   // this.state.name,
-    //   [
-    //     { text: 'Ops Forgot something', onPress: () => console.log('Ask me later pressed') },
-    //     {
-    //       text: 'Cancel',
-    //       onPress: () => console.log('Cancel Pressed'),
-    //       style: 'cancel',
-    //     },
-    //     { text: 'OK', onPress: () => console.log('OK Pressed') },
-    //   ],
-    //   { cancelable: false },
-    // );
+  showAlert = () => {
+    console.warn('Please confirm')
+    Alert.alert(
+      'Send form data',
+      JSON.stringify(this.state.formObject),
+      // this.state.name,
+      [
+        { text: 'Ops Forgot something', onPress: () => console.log('Ask me later pressed') },
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
+      ],
+      { cancelable: false },
+    );
 
-  }
+  };
   render() {
     return (
       <View>
@@ -58,7 +59,7 @@ export default class Visitor extends Component {
 
             <TouchableOpacity onPress={this.onPressButton}
             style={styles.button}
-            onPress={this.alert1}
+            onPress={this.showAlert}
             >
               
               <Text>Subbmit</Text>

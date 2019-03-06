@@ -5,17 +5,18 @@ export default class App extends Component {
   state = {visitorType:'vendor'}
 
   changeVisitorType = (type) => {
-    console.warn('Current Type is',type)
-    console.warn('Initial state is ',this.state)
+    // console.warn('Current Type is',type)
+    // console.warn('Initial state is ',this.state)
     this.setState({
       visitorType: type
     })
-    console.warn('Chnanged state is ',this.state)
+    // console.warn('Chnanged state is ',this.state)
   }
 
   render() {
     return (
       <View>
+        <View>
         <Button
           onPress={() => this.changeVisitorType('visitor')}
           title="Visitor Form"
@@ -24,12 +25,13 @@ export default class App extends Component {
         />
 
         <Button
-          onPress={() => this.changeVisitorType('vendor')}
+          onPress={() => {this.changeVisitorType('vendor')}}
           title="Vendor Form"
-          color="#841584"
+          color="#841543"
           accessibilityLabel="Learn more about this purple button"
         />
 
+        </View>
         <Visitor visitorType={this.state.visitorType}>
         </Visitor>
       </View>

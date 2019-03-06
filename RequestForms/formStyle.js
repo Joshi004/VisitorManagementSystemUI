@@ -32,7 +32,6 @@ export const styles = StyleSheet.create({
         width:'100%',
         height:50,
         backgroundColor:"#00BCD4",
-        textAlign:'center',
         alignItems:'center',
         justifyContent:'center'
     },
