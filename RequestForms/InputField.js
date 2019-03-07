@@ -12,8 +12,10 @@ export default class InputField extends Component {
       isFocused: true
     });
   if(this.props.fieldName == 'name'){
-    console.warn('This is name field')
+    // console.warn('This is name field')
+    
   }
+  this.props.fieldFocused(true)
   }
 
   handleBlur = event => {
@@ -22,7 +24,7 @@ export default class InputField extends Component {
       isFocused: false
     });
     // console.log('Going to set key as ',this.props.fieldName)
-    
+    // this.props.fieldFocused(false)
   }
 
   handleChangeText = text => {

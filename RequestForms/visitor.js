@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, KeyboardAvoidingView, Alert, TouchableOpacity, Text, View, TextInput, Button } from 'react-native';
+import { Platform,BackHandler, StyleSheet, KeyboardAvoidingView, Alert, TouchableOpacity, Text, View, TextInput, Button } from 'react-native';
 import { styles } from './FormStyle';
 import { requestParameters } from '../constants'
 import InputField from './InputField'
@@ -15,8 +15,24 @@ export default class Visitor extends Component {
     })
   }
 
+  constructor(props) {
+    super(props)
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+}
+
+  componentWillMount(){
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+    // console.warn('Component will mount now')
+    this.setState({
+      fieldFocused:false
+    })
+  }
+
+componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+}
   showAlert = () => {
-    console.warn('Please confirm')
+    // console.warn('Please confirm')
     Alert.alert(
       'Send form data',
       JSON.stringify(this.state.formObject),
@@ -34,10 +50,24 @@ export default class Visitor extends Component {
     );
 
   };
+
+  fieldFocused = (bol)=>{
+    // console.warn('Field focused called as',bol)
+    this.setState({
+      fieldFocused:bol
+    })
+  }
+  handleBackButtonClick() {
+    this.setState({
+      fieldFocused:false
+    })
+}
+
   render() {
+   
     return (
-      <KeyboardAvoidingView style={styles.formContainer} behavior="height" enabled>
-        <View style={styles.formBody}>
+      <View style={styles.formContainer}>
+        <View style={this.state.fieldFocused ? styles.formBodyShrink : styles.formBodyExpand}>
         <View style={styles.formHeading}>
         <Text > Enter Particulers Below </Text>
         </View>
@@ -53,7 +83,9 @@ export default class Visitor extends Component {
                 keyboardType={field.keyboardType}
                 focusedUnderlineColor={field.focusedUnderlineColor}
                 blurUnderlineColor={field.blurUnderlineColor}
-                saveForm={this.saveForm}>
+                saveForm={this.saveForm}
+                fieldFocused = {this.fieldFocused}
+                >
                 style={styles.inputFieldComp}
               </InputField>
 
@@ -75,7 +107,7 @@ export default class Visitor extends Component {
 
 
 
-     </KeyboardAvoidingView>
+     </View>
     );
   }
 }
