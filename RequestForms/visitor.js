@@ -3,6 +3,7 @@ import { Platform,BackHandler, StyleSheet, KeyboardAvoidingView, Alert, Touchabl
 import { styles } from './FormStyle';
 import { requestParameters } from '../constants'
 import InputField from './InputField'
+import ReactChipsInput from 'react-native-chips';
 export default class Visitor extends Component {
   state = {}
   formObject={}
@@ -72,9 +73,7 @@ componentWillUnmount() {
         <Text > Enter Particulers Below </Text>
         </View>
           {requestParameters[this.props.visitorType].map((field) => {
-            
             return (
-
               <InputField
                 key={field.fieldName}
                 fieldName={field.fieldName}

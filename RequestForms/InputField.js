@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TextInput} from 'react-native';
 import { styles } from './FormStyle';
+import ReactChipsInput from 'react-native-chips';
 
 export default class InputField extends Component {
     state = {
         isFocused: false
       }
+      nameArr=[]
     
   handleFocus = event => {
     this.setState({
@@ -34,8 +36,17 @@ export default class InputField extends Component {
     // If above behaves asynchronusly foloowing line may not set the ste properly
     this.props.saveForm(this.props.fieldName,this.state.value);
   }
+  handleNameAdd = name =>{
+    this.nameArr.push(name[0])
+    this.props.saveForm(this.props.fieldName,this.nameArr);
+  }
   render() {
-    return (
+    if(this.props.fieldName == 'name'){
+      return(
+        <ReactChipsInput label="Enter Fruits" initialChips={["Apple", "Orange"]} onChangeChips={(chips) => console.log(chips)} alertRequired={true} chipStyle={{ borderColor: 'blue', backgroundColor: 'grey' }}/>
+      )
+    }else
+    {return (
         <View style={styles.inputFieldContainer}>
           <Text style={this.state.isFocused ? styles.label: ''}>
             {this.state.isFocused ? this.props.placeholder : ''}
@@ -51,8 +62,9 @@ export default class InputField extends Component {
               onChangeText={this.handleChangeText}
               returnKeyLabel='next'
             />
+
         </View>
-      );
+      );}
   }
 }
 

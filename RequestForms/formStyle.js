@@ -37,6 +37,10 @@ export const styles = StyleSheet.create({
         height: '16%',
         paddingLeft:5,
     },
+    chipInput:{
+        fontSize:10,
+        backgroundColor:'pink'
+    },
     label:{
         marginBottom: -5, 
         color:'black',
