@@ -11,6 +11,9 @@ export default class InputField extends Component {
     this.setState({
       isFocused: true
     });
+  if(this.props.fieldName == 'name'){
+    console.warn('This is name field')
+  }
   }
 
   handleBlur = event => {
@@ -30,22 +33,22 @@ export default class InputField extends Component {
     this.props.saveForm(this.props.fieldName,this.state.value);
   }
   render() {
-      return (
-        <View style={styles.inputField}>
-        <Text style={this.state.isFocused ? styles.label: ''}>
-        {this.state.isFocused ? this.props.placeholder : ''}
-        </Text>
-            <TextInput 
-                placeholder={!this.state.isFocused & !this.state.value ? this.props.placeholder : null}
-                selectionColor={this.props.selectionColor}
-                keyboardType={this.props.keyboardType}
-                value={this.state[this.props.fieldName]}
-                underlineColorAndroid={this.state.isFocused ? this.props.focusedUnderlineColor:this.props.blurUnderlineColor}
-                style={styles.inputField}
-                onFocus={this.handleFocus}
-                onBlur={this.handleBlur }
-                onChangeText={this.handleChangeText}
-              />
+    return (
+        <View style={styles.inputFieldContainer}>
+          <Text style={this.state.isFocused ? styles.label: ''}>
+            {this.state.isFocused ? this.props.placeholder : ''}
+          </Text>
+          <TextInput 
+              placeholder={!this.state.isFocused & !this.state.value ? this.props.placeholder : null}
+              selectionColor={this.props.selectionColor}
+              keyboardType={this.props.keyboardType}
+              value={this.state[this.props.fieldName]}
+              underlineColorAndroid={this.state.isFocused ? this.props.focusedUnderlineColor:this.props.blurUnderlineColor}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur }
+              onChangeText={this.handleChangeText}
+              returnKeyLabel='next'
+            />
         </View>
       );
   }

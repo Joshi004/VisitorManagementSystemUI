@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Alert, TouchableOpacity, Text, View, TextInput, Button } from 'react-native';
+import { Platform, StyleSheet, KeyboardAvoidingView, Alert, TouchableOpacity, Text, View, TextInput, Button } from 'react-native';
 import { styles } from './FormStyle';
 import { requestParameters } from '../constants'
 import InputField from './InputField'
@@ -36,10 +36,13 @@ export default class Visitor extends Component {
   };
   render() {
     return (
-      <View>
-        <Text style={styles.formHeading}> Enter Particulers Below </Text>
+      <KeyboardAvoidingView style={styles.formContainer} behavior="height" enabled>
         <View style={styles.formBody}>
+        <View style={styles.formHeading}>
+        <Text > Enter Particulers Below </Text>
+        </View>
           {requestParameters[this.props.visitorType].map((field) => {
+            
             return (
 
               <InputField
@@ -51,6 +54,7 @@ export default class Visitor extends Component {
                 focusedUnderlineColor={field.focusedUnderlineColor}
                 blurUnderlineColor={field.blurUnderlineColor}
                 saveForm={this.saveForm}>
+                style={styles.inputFieldComp}
               </InputField>
 
             )
@@ -58,11 +62,11 @@ export default class Visitor extends Component {
           
 
             <TouchableOpacity onPress={this.onPressButton}
-            style={styles.button}
+            style={styles.touch}
             onPress={this.showAlert}
             >
               
-              <Text>Subbmit</Text>
+              <Text  style={styles.buttonText}>Subbmit</Text>
             </TouchableOpacity>
 
 
@@ -71,7 +75,7 @@ export default class Visitor extends Component {
 
 
 
-      </View>
+     </KeyboardAvoidingView>
     );
   }
 }
