@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import Visitor from './RequestForms/Visitor';
-import { styles } from './RequestForms/FormStyle';
 export default class App extends Component {
   state = {visitorType:'forgotId'}
 
