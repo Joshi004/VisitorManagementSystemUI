@@ -63,6 +63,10 @@ componentWillUnmount() {
       fieldFocused:false
     })
 }
+  // deleteName() {
+  //   newArray = this.formObject.name
+  //   newArray.splice(index, 1);
+  // }
 
   render() {
    
@@ -75,14 +79,20 @@ componentWillUnmount() {
           {requestParameters[this.props.visitorType].map((field) => {
             return (
               <InputField
-                key={field.fieldName}
-                fieldName={field.fieldName}
-                placeholder={field.placeholder}
-                selectionColor={field.selectionColor}
-                keyboardType={field.keyboardType}
-                focusedUnderlineColor={field.focusedUnderlineColor}
-                blurUnderlineColor={field.blurUnderlineColor}
-                saveForm={this.saveForm}
+                // key={field.fieldName}
+                // fieldName={field.fieldName}
+                // {...field.map((attribute)=>{
+                  
+                // })
+                {...field}
+                // placeholder={field.placeholder}
+                // selectionColor={field.selectionColor}
+                // keyboardType={field.keyboardType}
+                // focusedUnderlineColor={field.focusedUnderlineColor}
+                // blurUnderlineColor={field.blurUnderlineColor}
+                // defaultValue={field.defaultValue}
+                // editable={field.editable}
+                // saveForm={this.saveForm}
                 fieldFocused = {this.fieldFocused}
                 formObject = {this.formObject}
                 >

@@ -69,6 +69,8 @@ export default class InputField extends Component {
               onFocus={this.handleFocus}
               onBlur={this.handleBlur }
               onChangeText={this.handleChangeText}
+              defaultValue={this.props.defaultValue}
+              editable={this.props.editable}
               returnKeyLabel='next'
             />
 

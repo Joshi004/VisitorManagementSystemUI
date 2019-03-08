@@ -3,7 +3,7 @@ import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import Visitor from './RequestForms/Visitor';
 import { styles } from './RequestForms/FormStyle';
 export default class App extends Component {
-  state = {visitorType:'vendor'}
+  state = {visitorType:'forgotId'}
 
   // changeVisitorType = (type) => {
   //   // console.warn('Current Type is',type)
@@ -33,7 +33,7 @@ export default class App extends Component {
         />
 
         </View> */}
-        <Visitor visitorType={'visitor'}>
+        <Visitor visitorType={'forgotId'}>
         </Visitor>
         
       </View>
