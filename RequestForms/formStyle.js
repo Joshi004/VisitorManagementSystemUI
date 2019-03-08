@@ -42,11 +42,13 @@ export const styles = StyleSheet.create({
         backgroundColor:'pink'
     },
     label:{
-        marginBottom: -5, 
+        marginTop:20,
+        marginBottom: -20, 
         color:'black',
         width:'100%',
         paddingLeft:5,
-        height:'50%'
+        height:'50%',
+        fontSize:12,
     },
     buttonText:{
 

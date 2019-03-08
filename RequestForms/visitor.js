@@ -3,7 +3,7 @@ import { Platform,BackHandler, StyleSheet, KeyboardAvoidingView, Alert, Touchabl
 import { styles } from './FormStyle';
 import { requestParameters } from '../constants'
 import InputField from './InputField'
-import ReactChipsInput from 'react-native-chips';
+
 export default class Visitor extends Component {
   state = {}
   formObject={}
@@ -84,6 +84,7 @@ componentWillUnmount() {
                 blurUnderlineColor={field.blurUnderlineColor}
                 saveForm={this.saveForm}
                 fieldFocused = {this.fieldFocused}
+                formObject = {this.formObject}
                 >
                 style={styles.inputFieldComp}
               </InputField>

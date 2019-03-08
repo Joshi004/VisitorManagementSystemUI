@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,TextInput} from 'react-native';
 import { styles } from './FormStyle';
-import ReactChipsInput from 'react-native-chips';
+import ReactChipsInput from './react-chips/index';
 
 export default class InputField extends Component {
     state = {
@@ -37,13 +37,22 @@ export default class InputField extends Component {
     this.props.saveForm(this.props.fieldName,this.state.value);
   }
   handleNameAdd = name =>{
-    this.nameArr.push(name[0])
+    this.nameArr.push(name)
     this.props.saveForm(this.props.fieldName,this.nameArr);
+  }
+  handleNameRemove = (index) =>{
+    // console.warn('Name remove at',index,'from',this.state)
+
+    newArray = (this.props.formObject.name)
+    newArray.splice(index, 1);
+    this.props.saveForm(this.props.fieldName,newArray);
   }
   render() {
     if(this.props.fieldName == 'name'){
+      // console.warn('While rendering',this.props.formObject)
       return(
-        <ReactChipsInput label="Enter Fruits" initialChips={["Apple", "Orange"]} onChangeChips={(chips) => console.log(chips)} alertRequired={true} chipStyle={{ borderColor: 'blue', backgroundColor: 'grey' }}/>
+        
+        <ReactChipsInput handleNameRemove={this.handleNameRemove} label="Enter Names" initialChips={this.props.formObject.name} onChangeChips={(chips) => this.handleNameAdd(chips[chips.length - 1])} alertRequired={false} chipStyle={{ borderColor: 'blue', backgroundColor: 'grey' }}/>
       )
     }else
     {return (
